@@ -20,6 +20,7 @@ output:
 
 ## Overview
 
+Literate programming is a technique for meshing source code with a human-readable explanation of its logic. This approach is used widely in data science and the social sciences to enable reproducible research and open access. In this workshop, we introduce [`rmarkdown`](https://rmarkdown.rstudio.com/) and the R Markdown document format, and practice developing notebooks interweaving source code, output, and written text.
 
 ## Objectives
 
@@ -48,6 +49,9 @@ Room 295 in [1155 E 60th St](https://goo.gl/maps/7n7wDsd9mjnfRBtR8).
 
 
 ## Links
+
+- [Slides](https://css-skills.github.io/rmarkdown/slides/)
+- [Source materials for the workshop on GitHub](https://github.com/css-skills/rmarkdown)
 
 
 ```{.r .distill-force-highlighting-css}
