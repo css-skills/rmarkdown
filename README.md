@@ -16,9 +16,7 @@ output:
     keep_md: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+
 
 ## Overview
 
@@ -52,3 +50,5 @@ Room 295 in [1155 E 60th St](https://goo.gl/maps/7n7wDsd9mjnfRBtR8).
 ## Links
 
 
+```{.r .distill-force-highlighting-css}
+```
