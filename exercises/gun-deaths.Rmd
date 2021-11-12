@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r packages, cache = FALSE}
 library(tidyverse)
+# remotes::install_github("uc-cfss/rcfss) # if not already installed, run this code
 library(rcfss)
 
 theme_set(theme_minimal())
