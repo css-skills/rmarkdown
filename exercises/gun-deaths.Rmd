@@ -5,10 +5,10 @@ output: html_document
 ---
 
 ```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r packages}
+```{r packages, cache = FALSE}
 library(tidyverse)
 library(rcfss)
 
