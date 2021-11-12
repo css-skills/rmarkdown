@@ -1,0 +1,353 @@
+---
+title: "A deep dive into R Markdown"
+author: "Computation Skills Workshop"
+output: rcfss::xaringan
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  cache = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  echo = FALSE,
+  fig.retina = 2, fig.width = 12
+)
+
+library(tidyverse)
+library(rcfss)
+library(here)
+library(ymlthis)
+library(countdown)
+library(knitr)
+
+chunk <- "```"
+inline <- function(x = "") paste0("`` `r ", x, "` ``")
+
+set.seed(123)
+theme_set(theme_minimal(base_size = rcfss::base_size))
+```
+
+class: inverse
+
+```{r reproducibility, fig.alt = 'A judge’s desk labeled "Reproducibility" with a witness stand right next to it. On the witness stand is a smiling and confident R Markdown document pointing at some lines of code on itself. A fuzzy monster lawyer in a polka-dot tie stands proudly saying "Nothing further!" The judge (also a cute fuzzy monster) is smiling with their hands raised in celebration of reproducible work.'}
+include_graphics(path = "https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png")
+```
+
+.footnote[Source: [@AllisonHorst](https://github.com/allisonhorst/stats-illustrations)]
+
+---
+
+# Data science notebooks
+
+```{r notebooks}
+include_url(url = "https://datasciencenotebook.org/", height = "600px")
+```
+
+---
+
+class: inverse
+
+<div style="width:100%;height:0;padding-bottom:62%;position:relative;"><iframe src="https://giphy.com/embed/mCClSS6xbi8us" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
+
+---
+
+# A substantial debate
+
+- [I don't like notebooks](https://docs.google.com/presentation/d/1n2RlMdmv1p25Xy5thJUhkKGvjtV-dkAIsUXP-AL4ffI/preview?slide=id.g362da58057_0_1)
+- [The first notebook war](https://yihui.org/en/2018/09/notebook-war/)
+
+
+--
+
+- R vs. Python
+- Data analysis vs. software engineering
+
+---
+
+# Jupyter Notebooks
+
+```{r jupyter-notebook, fig.alt = "A screenshot of the Jupyter Notebook interface, depicting code cells, executed output, and Markdown formatted text."}
+include_graphics(path = "https://www.dataquest.io/wp-content/uploads/2019/01/interface-screenshot.png")
+```
+
+.footnote[Source: [Dataquest](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/)]
+
+---
+
+# Critiques about notebooks
+
+- Hidden state and out-of-order execution
+- Notebooks discourage modularity and testing
+- Hard to copy/paste into Slack/GitHub issues
+- Notebooks hinder reproducible and extensible science
+- Notebooks cannot easily be tracked under version control
+
+.footnote[Source: [The first notebook war](https://yihui.org/en/2018/09/notebook-war/)]
+
+--
+
+**Data science is not the same as software engineering**
+
+---
+
+class: inverse
+
+.center[
+
+```{r rmd-img, fig.alt = 'A glam rock band comprised of 3 fuzzy round monsters labeled as "Text", "Outputs", and "Code" performing together. Stylized title text reads: "R Markdown - we’re getting the band back together."', out.width = "80%"}
+include_graphics(path = "https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/rmarkdown_rockstar.png")
+```
+
+]
+
+.footnote[Source: [@AllisonHorst](https://github.com/allisonhorst/stats-illustrations)]
+
+---
+
+# R Markdown basics
+
+```{r plain-text, comment = ""}
+cat(htmltools::includeText(here("exercises", "gun-deaths.Rmd")))
+```
+
+---
+
+# Major components
+
+1. A **YAML header** surrounded by `---`s
+1. **Chunks** of R code surounded by ` ``` `
+1. Text mixed with simple text formatting using the [Markdown syntax](../hw01-edit-README.html)
+
+---
+
+# Knitting process
+
+.center[
+
+```{r knit}
+include_graphics(path = "https://r4ds.had.co.nz/images/RMarkdownFlow.png")
+```
+
+]
+
+.footnote[Source: [R for Data Science](https://r4ds.had.co.nz/r-markdown.html)]
+
+---
+
+# Text formatting with Markdown
+
+- Lightweight set of conventions for formatting plain text files
+- $\LaTeX$ simplified
+
+
+--
+
+- Demonstration Markdown file
+
+---
+
+# Write a simple Markdown file
+
+```{r cache = FALSE}
+countdown(minutes = 5)
+```
+
+---
+
+# Stop, collaborate, and listen
+
+* Render `gun-deaths.Rmd` as an HTML document
+* Add text describing the frequency polygon
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 5)
+```
+
+---
+
+# Code chunks
+
+    `r chunk`{r youth-dist, echo = FALSE, message = FALSE, warning = FALSE}
+    # code goes here
+    `r chunk`
+
+--
+
+* Naming code chunks
+* Code chunk options
+* `eval = FALSE`
+* `include = FALSE`
+* `echo = FALSE`
+* `message = FALSE` or `warning = FALSE`
+* `error = TRUE`
+* `cache = TRUE`
+
+---
+
+# Global options
+
+```r
+knitr::opts_chunk$set(
+  echo = FALSE
+)
+```
+
+---
+
+# Inline code
+
+```{r youth, include = FALSE}
+youth <- gun_deaths %>%
+  filter(age <= 65)
+```
+
+```{r inline-code, comment = ""}
+here("slides", "inline-code.md") %>%
+  htmltools::includeText() %>%
+  str_wrap() %>%
+  cat()
+```
+
+--
+
+We have data about `r nrow(gun_deaths)` individuals killed by guns. Only `r nrow(gun_deaths) - nrow(youth)` are older than 65.
+
+---
+
+# Ice is back with my brand new invention
+
+* Set `echo = FALSE` as a global option
+* Enable caching as a global option and render the document. Look at the file structure for the cache. Now render the document again. Does it run faster?
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 7)
+```
+
+---
+
+# YAML header
+
+```{r yml-default}
+yml_default <- yml() %>%
+  yml_title("Gun deaths") %>%
+  yml_author("Benjamin Soltoff") %>%
+  yml_date(lubridate::today())
+```
+
+```{r yml-basic, comment = "", dependson = "yml-default"}
+yml_default %>%
+  yml_output(github_document())
+```
+
+* **Y**et **A**nother **M**arkup **L**anguage
+* Standardized format for storing hierarchical data in a human-readable syntax
+* Defines how `rmarkdown` renders your `.Rmd` file
+
+---
+
+# HTML document
+
+```{r yml-html, comment = "", dependson = "yml-default"}
+yml_default %>%
+  yml_output(html_document())
+```
+
+---
+
+# Table of contents
+
+```{r yml-toc, comment = "", dependson = "yml-default"}
+yml_default %>%
+  yml_output(html_document(
+    toc = TRUE,
+    toc_depth = 2L
+  ))
+```
+
+---
+
+# Appearance and style
+
+```{r yml-theme, comment = "", dependson = "yml-default"}
+yml_default %>%
+  yml_output(html_document(
+    theme = "readable",
+    highlight = "pygments"
+  ))
+```
+
+---
+
+# Something grabs a hold of me tightly
+
+* Add a table of contents
+* Use the `"cerulean"` theme
+* Modify the figures so they are 8x6
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 7)
+```
+
+---
+
+# PDF document
+
+```{r yml-pdf, comment = "", dependson = "yml-default"}
+yml_default %>%
+  yml_output(pdf_document())
+```
+
+---
+
+# Presentations
+
+* [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
+* [reveal.js](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+* [Slidy](http://rmarkdown.rstudio.com/slidy_presentation_format.html)
+* [Beamer](http://rmarkdown.rstudio.com/beamer_presentation_format.html)
+* [`xaringan`](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+
+---
+
+# `render()`
+
+```r
+rmarkdown::render("my-document.Rmd", output_format = "html_document")
+rmarkdown::render("my-document.Rmd", output_format = "all")
+```
+
+---
+
+# Flow like a harpoon daily and nightly
+
+* Render `gun-deaths.Rmd` as both an HTML document and a PDF document
+    * If you do not have $\LaTeX$ installed, render as an HTML document and a Word document
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 5)
+```
+
+---
+
+# R scripts
+
+```{r script, echo = FALSE, comment = ""}
+cat(htmltools::includeText(here("exercises", "gun-deaths.R")))
+```
+
+---
+
+# When to use a script
+
+* For troubleshooting
+* Initial stages of project
+* Building a reproducible pipeline
+* It depends
+
+--
+
+## Running scripts
+
+* Interactively
+* Programmatically using `source()`
