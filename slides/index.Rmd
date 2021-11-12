@@ -28,7 +28,7 @@ set.seed(123)
 theme_set(theme_minimal(base_size = rcfss::base_size))
 ```
 
-class: inverse
+class: inverse, middle
 
 ```{r reproducibility, fig.alt = 'A judge’s desk labeled "Reproducibility" with a witness stand right next to it. On the witness stand is a smiling and confident R Markdown document pointing at some lines of code on itself. A fuzzy monster lawyer in a polka-dot tie stands proudly saying "Nothing further!" The judge (also a cute fuzzy monster) is smiling with their hands raised in celebration of reproducible work.'}
 include_graphics(path = "https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png")
@@ -91,7 +91,7 @@ include_graphics(path = "https://www.dataquest.io/wp-content/uploads/2019/01/int
 
 ---
 
-class: inverse
+class: inverse, middle
 
 .center[
 
@@ -149,19 +149,25 @@ include_graphics(path = "https://r4ds.had.co.nz/images/RMarkdownFlow.png")
 
 # Write a simple Markdown file
 
-```{r cache = FALSE}
-countdown(minutes = 5)
+- Edit `my-cv.md` to create a brief CV.
+- Title should be your name
+- Create sections for education and employment (use headers)
+- Include bulleted list of jobs/degrees
+- Highlight the year in bold
+
+```{r cache = FALSE, echo = FALSE}
+countdown(minutes = 8)
 ```
 
 ---
 
-# Stop, collaborate, and listen
+# Render and edit an R Markdown document
 
 * Render `gun-deaths.Rmd` as an HTML document
 * Add text describing the frequency polygon
 
 ```{r cache = FALSE, echo = FALSE}
-countdown(minutes = 5)
+countdown(minutes = 3)
 ```
 
 ---
@@ -176,10 +182,10 @@ countdown(minutes = 5)
 
 * Naming code chunks
 * Code chunk options
-* `eval = FALSE`
-* `include = FALSE`
 * `echo = FALSE`
 * `message = FALSE` or `warning = FALSE`
+* `eval = FALSE`
+* `include = FALSE`
 * `error = TRUE`
 * `cache = TRUE`
 
@@ -215,7 +221,7 @@ We have data about `r nrow(gun_deaths)` individuals killed by guns. Only `r nrow
 
 ---
 
-# Ice is back with my brand new invention
+# Customize code chunk options
 
 * Set `echo = FALSE` as a global option
 * Enable caching as a global option and render the document. Look at the file structure for the cache. Now render the document again. Does it run faster?
@@ -279,7 +285,7 @@ yml_default %>%
 
 ---
 
-# Something grabs a hold of me tightly
+# Customize YAML header
 
 * Add a table of contents
 * Use the `"cerulean"` theme
@@ -298,9 +304,33 @@ yml_default %>%
   yml_output(pdf_document())
 ```
 
+- Requires installation of $\LaTeX$
+- `tinytex::install_tinytex()`
+
 ---
 
-# Presentations
+# Core R Markdown formats
+
+Output format | Creates
+--------------|---------
+`html_document`| .html
+`pdf_document` | .pdf
+`word_document` | Microsoft Word (.docx)
+`md_document` | Markdown
+`github_document` | Markdown for GitHub
+
+---
+
+# Extensions of R Markdown
+
+- [`flexdashboard`](https://pkgs.rstudio.com/flexdashboard/)
+- [`bookdown`](https://bookdown.org/)
+- [`distill`](https://rstudio.github.io/distill/)
+- [`blogdown`](https://pkgs.rstudio.com/blogdown/)
+
+---
+
+# Slide presentations
 
 * [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
 * [reveal.js](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
@@ -319,14 +349,25 @@ rmarkdown::render("my-document.Rmd", output_format = "all")
 
 ---
 
-# Flow like a harpoon daily and nightly
+# Rendering different document formats
 
-* Render `gun-deaths.Rmd` as both an HTML document and a PDF document
-    * If you do not have $\LaTeX$ installed, render as an HTML document and a Word document
+- Render `gun-deaths.Rmd` as
+    - HTML document
+    - PDF document
+    - Word document
 
 ```{r cache = FALSE, echo = FALSE}
 countdown(minutes = 5)
 ```
+
+---
+
+# R Markdown notebooks
+
+- Interactive version of an R Markdown document
+- `*.nb.html`
+- More similar to Jupyter Notebook
+- Still plain-text files for version control
 
 ---
 
@@ -340,14 +381,19 @@ cat(htmltools::includeText(here("exercises", "gun-deaths.R")))
 
 # When to use a script
 
-* For troubleshooting
-* Initial stages of project
-* Building a reproducible pipeline
-* It depends
+- Software development
+- For troubleshooting
+- Initial stages of project
+- Building a reproducible pipeline
+
+
+--
+
+- **It depends**
 
 --
 
 ## Running scripts
 
-* Interactively
-* Programmatically using `source()`
+- Interactively
+- Programmatically using `source()`

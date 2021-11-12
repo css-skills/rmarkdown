@@ -23,7 +23,7 @@ class: center, middle, inverse, title-slide
 
 
 
-class: inverse
+class: inverse, middle
 
 &lt;img src="https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/reproducibility_court.png" title="A judge’s desk labeled &amp;quot;Reproducibility&amp;quot; with a witness stand right next to it. On the witness stand is a smiling and confident R Markdown document pointing at some lines of code on itself. A fuzzy monster lawyer in a polka-dot tie stands proudly saying &amp;quot;Nothing further!&amp;quot; The judge (also a cute fuzzy monster) is smiling with their hands raised in celebration of reproducible work." alt="A judge’s desk labeled &amp;quot;Reproducibility&amp;quot; with a witness stand right next to it. On the witness stand is a smiling and confident R Markdown document pointing at some lines of code on itself. A fuzzy monster lawyer in a polka-dot tie stands proudly saying &amp;quot;Nothing further!&amp;quot; The judge (also a cute fuzzy monster) is smiling with their hands raised in celebration of reproducible work."  /&gt;
 
@@ -80,7 +80,7 @@ class: inverse
 
 ---
 
-class: inverse
+class: inverse, middle
 
 .center[
 
@@ -163,166 +163,37 @@ youth %&gt;%
 
 # Text formatting with Markdown
 
-```
-Text formatting 
-------------------------------------------------------------
+- Lightweight set of conventions for formatting plain text files
+- `\(\LaTeX\)` simplified
 
-*italic*  or _italic_
-**bold**   __bold__
-`code`
-superscript^2^ and subscript~2~
 
-Headings
-------------------------------------------------------------
+--
 
-# 1st Level Header
-
-## 2nd Level Header
-
-### 3rd Level Header
-
-```
+- Demonstration Markdown file
 
 ---
 
-# Text formatting with Markdown
+# Write a simple Markdown file
 
-Text formatting 
-------------------------------------------------------------
+- Edit `my-cv.md` to create a brief CV.
+- Title should be your name
+- Create sections for education and employment (use headers)
+- Include bulleted list of jobs/degrees
+- Highlight the year in bold
 
-*italic*  or _italic_
-**bold**   __bold__
-`code`
-superscript^2^ and subscript~2~
-
-Headings
-------------------------------------------------------------
-
-# 1st Level Header
-
-## 2nd Level Header
-
-### 3rd Level Header
+<div class="countdown" id="timer_618ebfc7" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
 
 ---
 
-# Text formatting with Markdown
-
-```
-Text formatting 
-------------------------------------------------------------
-
-*italic*  or _italic_
-**bold**   __bold__
-`code`
-superscript^2^ and subscript~2~
-
-Headings
-------------------------------------------------------------
-
-# 1st Level Header
-
-## 2nd Level Header
-
-### 3rd Level Header
-
-Lists
-------------------------------------------------------------
-
-*   Bulleted list item 1
-
-*   Item 2
-
-    * Item 2a
-
-    * Item 2b
-
-1.  Numbered list item 1
-
-1.  Item 2. The numbers are incremented automatically in the output.
-
-Links and images
-------------------------------------------------------------
-
-&lt;http://example.com&gt;
-
-[linked phrase](http://example.com)
-
-![optional caption text](path/to/img.png)
-
-Tables 
-------------------------------------------------------------
-
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
-```
-
----
-
-# Text formatting with Markdown
-
-```
-Text formatting 
-------------------------------------------------------------
-
-*italic*  or _italic_
-**bold**   __bold__
-`code`
-superscript^2^ and subscript~2~
-
-Headings
-------------------------------------------------------------
-
-# 1st Level Header
-
-## 2nd Level Header
-
-### 3rd Level Header
-
-Lists
-------------------------------------------------------------
-
-*   Bulleted list item 1
-
-*   Item 2
-
-    * Item 2a
-
-    * Item 2b
-
-1.  Numbered list item 1
-
-1.  Item 2. The numbers are incremented automatically in the output.
-
-Links and images
-------------------------------------------------------------
-
-&lt;http://example.com&gt;
-
-[linked phrase](http://example.com)
-
-![optional caption text](path/to/img.png)
-
-Tables 
-------------------------------------------------------------
-
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
-```
-
----
-
-# Stop, collaborate, and listen
+# Render and edit an R Markdown document
 
 * Render `gun-deaths.Rmd` as an HTML document
 * Add text describing the frequency polygon
 
-<div class="countdown" id="timer_618e9433" style="right:0;bottom:0;" data-warnwhen="0">
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+<div class="countdown" id="timer_618ebe74" style="right:0;bottom:0;" data-warnwhen="0">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
 ---
@@ -337,10 +208,10 @@ Content Cell  | Content Cell
 
 * Naming code chunks
 * Code chunk options
-* `eval = FALSE`
-* `include = FALSE`
 * `echo = FALSE`
 * `message = FALSE` or `warning = FALSE`
+* `eval = FALSE`
+* `include = FALSE`
 * `error = TRUE`
 * `cache = TRUE`
 
@@ -372,12 +243,12 @@ We have data about 100798 individuals killed by guns. Only 15687 are older than 
 
 ---
 
-# Ice is back with my brand new invention
+# Customize code chunk options
 
 * Set `echo = FALSE` as a global option
 * Enable caching as a global option and render the document. Look at the file structure for the cache. Now render the document again. Does it run faster?
 
-<div class="countdown" id="timer_618e92e1" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_618ebd9e" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -451,13 +322,13 @@ output:
 
 ---
 
-# Something grabs a hold of me tightly
+# Customize YAML header
 
 * Add a table of contents
 * Use the `"cerulean"` theme
 * Modify the figures so they are 8x6
 
-<div class="countdown" id="timer_618e9656" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_618ebfc1" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">07</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -475,9 +346,33 @@ output: pdf_document
 ---
 ```
 
+- Requires installation of `\(\LaTeX\)`
+- `tinytex::install_tinytex()`
+
 ---
 
-# Presentations
+# Core R Markdown formats
+
+Output format | Creates
+--------------|---------
+`html_document`| .html
+`pdf_document` | .pdf
+`word_document` | Microsoft Word (.docx)
+`md_document` | Markdown
+`github_document` | Markdown for GitHub
+
+---
+
+# Extensions of R Markdown
+
+- [`flexdashboard`](https://pkgs.rstudio.com/flexdashboard/)
+- [`bookdown`](https://bookdown.org/)
+- [`distill`](https://rstudio.github.io/distill/)
+- [`blogdown`](https://pkgs.rstudio.com/blogdown/)
+
+---
+
+# Slide presentations
 
 * [ioslides](http://rmarkdown.rstudio.com/ioslides_presentation_format.html)
 * [reveal.js](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
@@ -496,14 +391,25 @@ rmarkdown::render("my-document.Rmd", output_format = "all")
 
 ---
 
-# Flow like a harpoon daily and nightly
+# Rendering different document formats
 
-* Render `gun-deaths.Rmd` as both an HTML document and a PDF document
-    * If you do not have `\(\LaTeX\)` installed, render as an HTML document and a Word document
+- Render `gun-deaths.Rmd` as
+    - HTML document
+    - PDF document
+    - Word document
 
-<div class="countdown" id="timer_618e95b5" style="right:0;bottom:0;" data-warnwhen="0">
+<div class="countdown" id="timer_618ebfb1" style="right:0;bottom:0;" data-warnwhen="0">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
+
+---
+
+# R Markdown notebooks
+
+- Interactive version of an R Markdown document
+- `*.nb.html`
+- More similar to Jupyter Notebook
+- Still plain-text files for version control
 
 ---
 
@@ -543,17 +449,22 @@ youth %&gt;%
 
 # When to use a script
 
-* For troubleshooting
-* Initial stages of project
-* Building a reproducible pipeline
-* It depends
+- Software development
+- For troubleshooting
+- Initial stages of project
+- Building a reproducible pipeline
+
+
+--
+
+- **It depends**
 
 --
 
 ## Running scripts
 
-* Interactively
-* Programmatically using `source()`
+- Interactively
+- Programmatically using `source()`
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -562,6 +473,7 @@ youth %&gt;%
 <script>var slideshow = remark.create({
 "highlightLanguage": "r",
 "highlightStyle": "github",
+"highlightLines": true,
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -628,7 +540,24 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
       links[i].target = '_blank';
     }
   }
-})();</script>
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
 
 <script>
 slideshow._releaseMath = function(el) {
