@@ -11,6 +11,7 @@ author:
     affiliation: University of Chicago
     affiliation_url: https://macss.uchicago.edu
 date: 11-16-2021
+creative_commons: CC BY-NC
 output:
   distill::distill_article:
     keep_md: true
