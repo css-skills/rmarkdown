@@ -149,7 +149,7 @@ include_graphics(path = "https://r4ds.had.co.nz/images/RMarkdownFlow.png")
 
 # Write a simple Markdown file
 
-- Edit `my-cv.md` to create a brief CV.
+- Edit `my-cv.md` to create a brief CV
 - Title should be your name
 - Create sections for education and employment (use headers)
 - Include bulleted list of jobs/degrees
