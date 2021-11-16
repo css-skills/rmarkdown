@@ -1,5 +1,5 @@
 ---
-title: "A deep dive into R Markdown"
+title: "Literate programming with R Markdown"
 author: "Computation Skills Workshop"
 output: rcfss::xaringan
 ---
